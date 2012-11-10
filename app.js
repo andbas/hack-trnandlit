@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , bitb = require('./routes/bitb')
   , http = require('http')
   , path = require('path')
   , app = express()
@@ -30,6 +31,7 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/users', user.list);
+app.get('/bitb', bitb.index);
 
 
 server.listen(app.get('port'), function(){
