@@ -10,11 +10,11 @@
 			
 			init: function( options ){
 			
-				options = $.extend({ speed: 10 }, options);
+				options = $.extend({ speed: 40 }, options);
 
 				var area = $(this);
 				setInterval(function() { 
-					area.find('div').css({ left: '-=2', width: '+=2' } )
+					area.find('div').css({ left: '-=4', width: '+=4' } )
 				}, options.speed );
 					
 				return this;
@@ -31,7 +31,7 @@
 					$(this).css({ 'font-size':height, height: height, top: offset }); 
 					var label = target.find( '[rel=' + $(this).attr('id') + ']' ).css({ top: offset });
 
-                    label.find('img').css({ height: height * 0.9 });
+                    label.find('img').css({ height: height * 0.5 });
 					offset += height + 1;
 				});
 				
