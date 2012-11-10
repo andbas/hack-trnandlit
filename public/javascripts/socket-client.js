@@ -8,15 +8,24 @@
     socket.emit('login',{"email":email});
 
     socket.on('users online',function(data){
-      bitb.users = data;
+        bitb.users = data;
+
+        $.each(bitb.users, function(){
+            $('div#time-track').timeTrack('add', this );
+        });
     });
 
     socket.on('user connected',function(data){
-      bitb.users[data.socketId] = data.email;
+        bitb.users[data.socketId] = data.email;
+
+        $('div#time-track').timeTrack('add', data.email );
+
+
     });
 
     socket.on('user disconnected',function(data){
-      delete bitb.users[data.socketId];
+        $('div#time-track').timeTrack('remove', bitb.users[data.socketId] );
+        delete bitb.users[data.socketId];
     });
 
     socket.on('press',function(data){

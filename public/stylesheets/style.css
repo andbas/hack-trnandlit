@@ -221,3 +221,49 @@ footer {
 #stats li {
     margin-bottom: 50px
 }
+
+#time-track {
+    position:relative;
+    width:100%;
+    height:300px;
+    overflow: hidden;
+    background: #E9E9E9;
+    border:1px solid #ccc;
+    border:1px solid rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow:0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#time-track div {
+    position:absolute;
+    height:100px;
+    width:0px;
+    right:0;
+    top:0;
+    background: #E9E9E9;
+    border:1px dotted #666;
+    border-left:3px solid #0088CC;
+    border-right:none;
+}
+
+#time-track h3 {
+    position:absolute;
+    height:100px;
+    top:0;
+    right:0;
+    font-size:8pt;
+    font-weight:normal;
+    margin:0.5em 1em 0 0;
+    color: #999;
+    text-shadow: 1px 1px 1px #eee;
+}
+
+#time-track div span {
+    position:absolute;
+    height: 0.9em;
+    width: 0.9em;
+    top:0.05em;
+    background:black;
+    border-radius:1em;
+}

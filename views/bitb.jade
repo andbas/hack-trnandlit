@@ -1,9 +1,11 @@
 extends layout
 
 block mainContent        
-    input(type='hidden', name='userid', value=userid)
+    input#email(type='hidden', name='userid', value=userid)
     div(class="timelineBlock")
       h3 History
+        div#time-track
+
     div(class="buttonsBlock")
       h3 Bit Brothers
       ul#participants
@@ -31,7 +33,3 @@ block mainContent
       $(document).ready(function() {
          
       });
-        
-      
-      
-             
