@@ -54,6 +54,6 @@ io.sockets.on('connection', function (socket) {
   });
 
   socket.on('press',function(data){
-    socket.broadcast.emit('press', {"pressed":data});
+    io.sockets.emit('press', data);
   });
 });
