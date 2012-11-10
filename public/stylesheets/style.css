@@ -43,29 +43,6 @@ header h1 a {
   border-bottom: solid 1px #E9E9E9;
 }
 
-#nav {
-  float: right;
-  text-transform: uppercase;
-  position: relative
-}
-#nav li {
-  float: left;
-  line-height: 90px;
-  margin-left: 20px
-}
-#nav .active a {
-  opacity: 0.5
-}
-#nav a {
-  font-size: .85em;
-  font-weight: bold
-}
-
-#end{
-  height: 200px;
-  background:#191919;
-}
-
 footer {
   color: #919191;
   text-align: center;
@@ -74,7 +51,6 @@ footer {
   padding-bottom: 90px;
   margin-bottom: 40px
 }
-
 .loginForm {
     margin: 50px 50px 0;
 }
@@ -136,14 +112,115 @@ footer {
     -moz-border-radius: 1px;
     -o-border-radius: 1px
 }
-.loginForm .successMessage {
-    position: absolute;
-    top: 60px;
-    left: 400px;
-    opacity: 0;
-    visibility: hidden;
+
+.timelineBlock{
+    margin: 50px 50px 0;
+}
+
+.buttonsBlock{
+    background: white;
+    color: #5B5B5B;
+    padding: 50px;
+}
+
+.buttonsBlock h3, .timelineBlock h3{
     font-family: 'Arial Black', 'Gill Sans', 'Lato', Helvetica, Arial, sans-serif;
-    font-size: 2.5em;
-    color: #fff;
+    font-size: 1.3em;
+    color: #2C2C2C;
     font-weight: 900;
-    t
+    text-transform: uppercase;
+    margin-bottom: 20px;       
+}
+
+#participants {
+    text-align:center; 
+}
+
+#participants li {
+    width: 200px;
+    float: left;
+    margin-bottom: 50px;
+    position: relative
+}
+
+#participants li img {
+    border-radius:200px;
+      box-shadow: 0 0px 5px #c7c7c7; 
+}
+
+#participants img {
+    display: inline-block
+}
+#participants li h4 {
+    font-size: 1em;
+    padding: 15px 0 7px
+}
+#participants li h5 {
+    color: #ccc
+}
+#participants .doIt {
+    display: inline-block;
+    height: 126px;
+    width: 126px;
+    background: #359668 url(/images/plus-white.png) 50% 50% no-repeat;
+    text-indent: -900em;
+    border: solid 2px #359668;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%
+}
+#participants .personalLinks {
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    margin-left: -60px;
+    height: 120px;
+    width: 120px;
+    background: #fff;
+    line-height: 120px;
+    opacity: 0;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    -webkit-transition: 0.5s;
+    -webkit-transform: scale(0.9)
+}
+#participants li:hover .personalLinks {
+    opacity: 1;
+    -webkit-transform: scale(1)
+}
+#participants .personalLinks a {
+    color: #359668;
+    font-weight: bold;
+    font-size: .85em
+}
+#participants .personalLinks .twitter,#participants .personalLinks .dribbble,#participants .personalLinks .github {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 10px;
+    background-image: url(/images/social-icons.png);
+    text-indent: -900em
+}
+#participants .personalLinks .twitter {
+    background-position: -60px 0
+}
+#participants .personalLinks .github {
+    background-position: -30px 0
+}
+#participants .you .personalLinks {
+    line-height: 120px;
+    background: #fff url(/images/plus-green.png) 50% 50% no-repeat;
+    text-indent: -900em
+}
+#participants .you .personalLinks a {
+    display: block;
+    line-height: 120px
+}
+#stats li {
+    margin-bottom: 50px
+}
