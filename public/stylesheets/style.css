@@ -127,7 +127,15 @@ footer {
     padding: 50px;
 }
 
-.buttonsBlock h3, .timelineBlock h3{
+.soundsBlock{
+    background: white;
+    color: #5B5B5B;
+    padding: 50px;
+    height: 200px;
+}
+
+
+.buttonsBlock h3, .timelineBlock h3, .soundsBlock h3{
     font-family: 'Arial Black', 'Gill Sans', 'Lato', Helvetica, Arial, sans-serif;
     font-size: 1.3em;
     color: #2C2C2C;
@@ -165,7 +173,7 @@ footer {
 #participants li h5 {
     color: #ccc
 }
-#participants .controls {
+/*#participants .controls {
     display: block;
     position: absolute;
     top: 0px;
@@ -173,8 +181,8 @@ footer {
     margin-left: -50px;
     height: 100px;
     width: 100px;
+    padding-left:1px;    
     background: #2C2C2C url('../images/bit_white.png') no-repeat center center;
-/*    background: #08C url('../images/bit_white.png') no-repeat center center;*/ 
     opacity: 0;
     border-radius: 100%;
     -webkit-border-radius: 100%;
@@ -193,39 +201,7 @@ footer {
     opacity: 1;
     background: #08C url('../images/bit_white.png') no-repeat center center;
 }
-#participants .controls a {
-    color: #359668;
-    font-weight: bold;
-    font-size: .85em
-}
-#participants .controls .twitter,#participants .controls .dribbble,#participants .controls .github {
-    display: inline-block;
-    height: 30px;
-    width: 30px;
-    position: relative;
-    top: 10px;
-    background-image: url(/images/social-icons.png);
-    text-indent: -900em
-}
-#participants .controls .twitter {
-    background-position: -60px 0
-}
-#participants .controls .github {
-    background-position: -30px 0
-}
-#participants .you .controls {
-    line-height: 120px;
-    background: #fff url(/images/plus-green.png) 50% 50% no-repeat;
-    text-indent: -900em
-}
-#participants .you .controls a {
-    display: block;
-    line-height: 120px
-}
-#stats li {
-    margin-bottom: 50px
-}
-
+*/
 #time-track {
     position:relative;
     width:100%;
@@ -270,4 +246,64 @@ footer {
     top:0.05em;
     background:black;
     border-radius:1em;
+}
+
+
+#sounds {
+    text-align:center; 
+}
+
+#sounds li {
+    width: 100px;
+    float: left;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#sounds li img {
+    border-radius:100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;    
+    background:#2C2C2C;
+    height: 50px;
+    width: 50px;    
+    box-shadow: 0 0px 5px #c7c7c7; 
+}
+
+#sounds img {
+    display: inline-block
+}
+#sounds li h4 {
+    font-size: 12px;
+    padding: 15px 0 7px
+}
+#sounds .controls {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    margin-left: -25px;
+    padding-left:1px;
+    height: 50px;
+    width: 50px;
+    background: #fff url('../images/bit_small.png') no-repeat center center;
+/*    background: #08C url('../images/bit_white.png') no-repeat center center;*/ 
+    opacity: 0;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;
+    -webkit-transition: 0.2s;
+    -webkit-transform: scale(0.8);
+    cursor: pointer;    
+}
+#sounds li:hover .controls {
+    opacity: 1;
+    -webkit-transform: scale(0.8)
+}
+
+#sounds li:active .controls {
+    opacity: 1;
+    background: #08C url('../images/bit_white_small.png') no-repeat center center;
 }
