@@ -236,8 +236,7 @@ footer {
     font-weight:normal;
     text-transform: none;
     margin:0.5em 1em 0 0;
-    color: #aaa;
-    text-shadow: 1px 1px 1px #eee;
+    color: #666;
 }
 
 #time-track h3 img {
