@@ -144,8 +144,11 @@ footer {
 }
 
 #participants li img {
-    border-radius:200px;
-      box-shadow: 0 0px 5px #c7c7c7; 
+    border-radius:100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -o-border-radius: 100%;    
+    box-shadow: 0 0px 5px #c7c7c7; 
 }
 
 #participants img {
@@ -158,46 +161,40 @@ footer {
 #participants li h5 {
     color: #ccc
 }
-#participants .doIt {
-    display: inline-block;
-    height: 126px;
-    width: 126px;
-    background: #359668 url(/images/plus-white.png) 50% 50% no-repeat;
-    text-indent: -900em;
-    border: solid 2px #359668;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -o-border-radius: 50%
-}
-#participants .personalLinks {
+#participants .controls {
     display: block;
     position: absolute;
-    top: 5px;
+    top: 0px;
     left: 50%;
-    margin-left: -60px;
-    height: 120px;
-    width: 120px;
-    background: #fff;
-    line-height: 120px;
+    margin-left: -50px;
+    height: 100px;
+    width: 100px;
+    background: #2C2C2C url('../images/bit_white.png') no-repeat center center;
+/*    background: #08C url('../images/bit_white.png') no-repeat center center;*/ 
     opacity: 0;
     border-radius: 100%;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     -o-border-radius: 100%;
-    -webkit-transition: 0.5s;
-    -webkit-transform: scale(0.9)
+    -webkit-transition: 0.2s;
+    -webkit-transform: scale(0.8);
+    cursor: pointer;    
 }
-#participants li:hover .personalLinks {
+#participants li:hover .controls {
     opacity: 1;
-    -webkit-transform: scale(1)
+    -webkit-transform: scale(0.8)
 }
-#participants .personalLinks a {
+
+#participants li:active .controls {
+    opacity: 1;
+    background: #08C url('../images/bit_white.png') no-repeat center center;
+}
+#participants .controls a {
     color: #359668;
     font-weight: bold;
     font-size: .85em
 }
-#participants .personalLinks .twitter,#participants .personalLinks .dribbble,#participants .personalLinks .github {
+#participants .controls .twitter,#participants .controls .dribbble,#participants .controls .github {
     display: inline-block;
     height: 30px;
     width: 30px;
@@ -206,18 +203,18 @@ footer {
     background-image: url(/images/social-icons.png);
     text-indent: -900em
 }
-#participants .personalLinks .twitter {
+#participants .controls .twitter {
     background-position: -60px 0
 }
-#participants .personalLinks .github {
+#participants .controls .github {
     background-position: -30px 0
 }
-#participants .you .personalLinks {
+#participants .you .controls {
     line-height: 120px;
     background: #fff url(/images/plus-green.png) 50% 50% no-repeat;
     text-indent: -900em
 }
-#participants .you .personalLinks a {
+#participants .you .controls a {
     display: block;
     line-height: 120px
 }
