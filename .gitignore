@@ -63,3 +63,4 @@ Thumbs.db
 *-report*
 Gemfile.lock
 summary.json
+node_modules
