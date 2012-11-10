@@ -236,8 +236,7 @@ footer {
     font-weight:normal;
     text-transform: none;
     margin:0.5em 1em 0 0;
-    color: #aaa;
-    text-shadow: 1px 1px 1px #eee;
+    color: #666;
 }
 
 #time-track h3 img {
@@ -315,7 +314,25 @@ footer {
     -webkit-transform: scale(0.8)
 }
 
-#sounds li:active .controls {
+#sounds li:active .controls,
+#sounds .controls.active{
     opacity: 1;
     background: #08C url('../images/bit_white_small.png') no-repeat center center;
+}
+
+#sounds li:hover span {
+    visibility: hidden;
+}
+
+#sounds span {
+    display: block;
+    position: relative;
+    top:-20px;
+    left:60px;
+    height: 1.5em;
+    width:1.5em;
+    font-size: 8pt;
+    color: #fff;
+    background: #2c2c2c;
+    border-radius: 100%;
 }

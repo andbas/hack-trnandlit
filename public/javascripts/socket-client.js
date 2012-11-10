@@ -39,10 +39,22 @@
     var _this = $(this);
      $(this).prepend("<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(_this.attr('data-id'))+'.jpg?size=100'+"\">"+"</img>");
     });
-         
-    //$(document).keydown(function(code) {
-     //   console.log('Handler for .keydown() called.' + code);
-    //});
+
+    var keymaps = 'qwertyuiasdfghjk'.split('');
+
+    $('#sounds .controls').each(function(){
+      var key = keymaps.shift();
+      $(this).attr('data-key-map', key).after( $('<span>').text(key) );
+    });
+
+    $(window).keypress(function(event){
+
+      var btn =  $('#sounds .controls[data-key-map=' + String.fromCharCode(event.charCode).toLowerCase() + ']');
+      btn.addClass('active'); setTimeout(function () {btn.removeClass('active') }, 300 );
+      btn.click();
+
+    });
+
     $('#sounds .controls').click(function(){
         // console.log($(this).parent("li").attr('data-id'));
         socket.emit('press', { "soundid":$(this).parent("li").attr('data-id'), "email":email });
@@ -84,5 +96,3 @@
     }
   });
 })();
-
-
