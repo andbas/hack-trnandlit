@@ -30,7 +30,6 @@
 
     socket.on('press',function(data){
         $('div#time-track').timeTrack('send', data.email );
-
     });
 
     $('div#time-track').timeTrack();
@@ -43,8 +42,9 @@
     //$(document).keydown(function(code) {
      //   console.log('Handler for .keydown() called.' + code);
     //});
-    $('.controls').click(function(){
-        socket.emit('press', { "soundid":"123", "email":email });
+    $('#sounds .controls').click(function(){
+        // console.log($(this).parent("li").attr('data-id'));
+        socket.emit('press', { "soundid":$(this).parent("li").attr('data-id'), "email":email });
     });    
   });
 })();
