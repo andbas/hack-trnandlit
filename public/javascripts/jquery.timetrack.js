@@ -31,7 +31,7 @@
 					$(this).css({ 'font-size':height, height: height, top: offset }); 
 					var label = target.find( '[rel=' + $(this).attr('id') + ']' ).css({ top: offset });
 
-                    label.find('img').css({ height: height * 0.5 });
+                    label.find('img').css({ height: height * 0.9 });
 					offset += height + 1;
 				});
 				
