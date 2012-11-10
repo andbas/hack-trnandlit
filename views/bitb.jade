@@ -1,5 +1,34 @@
 extends layout
 
-block mainContent
-    h1 Bit Brothers!
+block mainContent        
+    input(type='hidden', name='userid', value=userid)
+    div(class="timelineBlock")
+      h3 History
+    div(class="buttonsBlock")
+      h3 Bit Brothers
+      ul#participants
+        li(data-id="trnl.me@gmail.com", class="button")
+          h4 trnl.me@gmail.com
+        li(data-id="litvinok@gmail.com", class="button")
+          h4 trnl.me@gmail.com        
+        li(data-id="bas.andrei@gmail.com", class="button")
+          h4 trnl.me@gmail.com        
+        li(data-id="test.me@gmail.com", class="button")
+          h4 trnl.me@gmail.com        
+        li(data-id="bymongo@me.com", class="button")
+          h4 trnl.me@gmail.com        
+        li(data-id="triangel@tut.by", class="button")                                        
+          h4 trnl.me@gmail.com        
     script(src='/javascripts/socket-client.js')
+    script(src='/javascripts/jquery.md5.js')    
+    script
+      $(document).ready(function() {
+         $('.button').each(function(){          
+         var _this = $(this);
+          $(this).prepend("<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(_this.attr('data-id'))+'.jpg'+"\">"+"</img>");
+         });
+      });
+        
+      
+      
+             
