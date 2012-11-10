@@ -84,7 +84,7 @@
 		} 
 		
 		else {
-		  $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+		  $.error( 'Method ' +  method + ' does not exist on jQuery.timeTrack' );
 		}    
 	};
 	
