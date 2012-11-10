@@ -30,6 +30,7 @@
 
     socket.on('press',function(data){
         $('div#time-track').timeTrack('send', data.email );
+        // bitb.playSound(data.soundid);
     });
 
     $('div#time-track').timeTrack();
@@ -46,6 +47,40 @@
         // console.log($(this).parent("li").attr('data-id'));
         socket.emit('press', { "soundid":$(this).parent("li").attr('data-id'), "email":email });
     });    
+
+    bitb.channel_max = bitb.channel_max || 15;
+    bitb.audiochannels = bitb.audiochannels || [];
+
+    var i;
+
+    for (i = 0; i < bitb.channel_max; i++) {
+      bitb.audiochannels[i] = {};
+      bitb.audiochannels[i].track = new Audio();
+      bitb.audiochannels[i].finished = -1;
+    }
+
+
+    var sounds = ['001', '002', '003', '004', '005', '006', '007', '008', '009', '010', '011', '012', '013', '014', '015', '016'];
+    var body = $('body');
+    sounds.forEach(function (sound) {
+      body.append('<audio id="sound' + sound + '" src="sounds/' + sound + '.mp3" preload="auto"></audio>');
+    });
+
+    window.bitb.playSound = window.bitb.playSound || function (soundId) {
+      var i
+        , current_time = (new Date()).getTime();
+
+      for (i = 0; i < bitb.channel_max; i++) {
+        var channel = bitb.audiochannels[i];
+        if (channel.finished < current_time) {
+          channel.finished = current_time + document.getElementById(soundId).duration * 1000;
+          channel.track.src = document.getElementById(soundId).src;
+          channel.track.load();
+          channel.track.play();
+          break;
+        }
+      }
+    }
   });
 })();
 
