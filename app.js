@@ -49,8 +49,8 @@ io.sockets.on('connection', function (socket) {
   });
 
   socket.on('disconnect', function () {
-    delete users[socket.id];
-    socket.broadcast.emit('user disconnected', {"socketId":socket.id});
+    socket.broadcast.emit('user disconnected', {"socketId":socket.id, "email": users[socket.id]});
+    delete users[socket.id];    
   });
 
   socket.on('press',function(data){

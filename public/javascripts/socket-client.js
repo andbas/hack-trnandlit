@@ -21,7 +21,8 @@
     });
 
     socket.on('user connected',function(data){
-        bitb.users[data.socketId] = data.email;        
+        bitb.users[data.socketId] = data.email;
+
         $('div#time-track').timeTrack('add', data.email );
         $('#participants').append("<li class=\"button\" data-id=\""+$.md5(data.email)+"\">"
             +"<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(data.email)+'.jpg?size=100'+"\">"+"</img>"
@@ -42,10 +43,27 @@
     });
 
     $('div#time-track').timeTrack();
-         
-    //$(document).keydown(function(code) {
-     //   console.log('Handler for .keydown() called.' + code);
-    //});
+
+    $('.button').each(function(){          
+    var _this = $(this);
+     $(this).prepend("<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(_this.attr('data-id'))+'.jpg?size=100'+"\">"+"</img>");
+    });
+
+    var keymaps = 'qwertyuiasdfghjk'.split('');
+
+    $('#sounds .controls').each(function(){
+      var key = keymaps.shift();
+      $(this).attr('data-key-map', key).after( $('<span>').text(key) );
+    });
+
+    $(window).keypress(function(event){
+
+      var btn =  $('#sounds .controls[data-key-map=' + String.fromCharCode(event.charCode).toLowerCase() + ']');
+      btn.addClass('active'); setTimeout(function () {btn.removeClass('active') }, 300 );
+      btn.click();
+
+    });
+
     $('#sounds .controls').click(function(){
         // console.log($(this).parent("li").attr('data-id'));
         socket.emit('press', { "soundid":$(this).parent("li").attr('data-id'), "email":email });
@@ -87,5 +105,3 @@
     }
   });
 })();
-
-
