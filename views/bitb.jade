@@ -4,6 +4,8 @@ block mainContent
     input(type='hidden', name='userid', value=userid)
     div(class="timelineBlock")
       h3 History
+        div#time-track
+
     div(class="buttonsBlock")
       h3 Bit Brothers
       ul#participants
@@ -18,17 +20,20 @@ block mainContent
         li(data-id="bymongo@me.com", class="button")
           h4 trnl.me@gmail.com        
         li(data-id="triangel@tut.by", class="button")                                        
-          h4 trnl.me@gmail.com        
+          h4 trnl.me@gmail.com
+
+    script(src='/javascripts/jquery.timetrack.js')
+    script(src='/javascripts/jquery.md5.js')
     script(src='/javascripts/socket-client.js')
-    script(src='/javascripts/jquery.md5.js')    
     script
-      $(document).ready(function() {
-         $('.button').each(function(){          
-         var _this = $(this);
-          $(this).prepend("<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(_this.attr('data-id'))+'.jpg'+"\">"+"</img>");
-         });
-      });
-        
+        $(document).ready(function() {
+            $('div#time-track').timeTrack();
+            $('.button').each(function(){
+                var _this = $(this);
+                $(this).prepend("<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(_this.attr('data-id'))+'.jpg'+"\">"+"</img>");
+            });
+        });
+
       
       
              
