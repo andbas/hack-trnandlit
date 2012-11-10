@@ -57,6 +57,7 @@ footer {
 }
 .loginForm {
     margin: 50px 50px 0;
+    background:url('../images/logo.png') no-repeat right top;    
 }
 .loginForm a {
     color: #8ED4B3
