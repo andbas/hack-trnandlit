@@ -12,7 +12,7 @@
 
         $.each(bitb.users, function(){
             $('div#time-track').timeTrack('add', this );
-            $('#participants').append("<li class=\"button\" data-id=\""+this+"\">"
+            $('#participants').append("<li class=\"button\" data-id=\""+$.md5(this)+"\">"
                 +"<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(this)+'.jpg?size=100'+"\">"+"</img>"
                 +"<h4>"+this+"</h4>"
                 +"</li>"
@@ -23,7 +23,7 @@
     socket.on('user connected',function(data){
         bitb.users[data.socketId] = data.email;        
         $('div#time-track').timeTrack('add', data.email );
-        $('#participants').append("<li class=\"button\" data-id=\""+this+"\">"
+        $('#participants').append("<li class=\"button\" data-id=\""+$.md5(data.email)+"\">"
             +"<img src=\""+'http://www.gravatar.com/avatar/' + $.md5(data.email)+'.jpg?size=100'+"\">"+"</img>"
             +"<h4>"+data.email+"</h4>"
             +"</li>"
@@ -32,9 +32,8 @@
 
     socket.on('user disconnected',function(data){
         $('div#time-track').timeTrack('remove', bitb.users[data.socketId] );
-        $("[data-id='"+data.email+"']").remove();
-        delete bitb.users[data.socketId];
-        
+        $('[data-id='+$.md5(data.email)+']').remove();
+        delete bitb.users[data.socketId];        
     });
 
     socket.on('press',function(data){
