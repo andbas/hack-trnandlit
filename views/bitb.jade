@@ -1,5 +1,9 @@
 extends layout
 
 block mainContent
-    h1 Bit Brothers!
+    input(type='hidden', name='userid', value=userid)
+    div(class="timelineBlock")
+      h3 Timeline goes here
+    div(class="buttonsBlock")
+      h3 Buttons goes here
     script(src='/javascripts/socket-client.js')
