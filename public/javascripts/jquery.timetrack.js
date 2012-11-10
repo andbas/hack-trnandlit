@@ -13,8 +13,12 @@
 				options = $.extend({ speed: 40 }, options);
 
 				var area = $(this);
+
 				setInterval(function() { 
-					area.find('div').css({ left: '-=4', width: '+=4' } )
+					area.find('div').css({ left: '-=4', width: '+=4' }).find('span').each(function(){
+                        var pos = $(this).offset();
+                        if (pos.left < 0 ) $(this).remove();
+                    })
 				}, options.speed );
 					
 				return this;

@@ -311,7 +311,8 @@ footer {
 }
 #sounds li:hover .controls {
     opacity: 1;
-    -webkit-transform: scale(0.8)
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
 }
 
 #sounds li:active .controls,
