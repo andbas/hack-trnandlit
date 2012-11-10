@@ -29,7 +29,9 @@
 				
 				tracks.each(function(){ 
 					$(this).css({ 'font-size':height, height: height, top: offset }); 
-					target.find( '[rel=' + $(this).attr('id') + ']' ).css({ top: offset });
+					var label = target.find( '[rel=' + $(this).attr('id') + ']' ).css({ top: offset });
+
+                    label.find('img').css({ height: height * 0.9 });
 					offset += height + 1;
 				});
 				
@@ -39,7 +41,10 @@
 			add: function( key ){
 				
 				$('<div>').attr({ id: id(key) }).appendTo( this );
-				$('<h3>').attr({ rel: id(key) }).text( key ).hide().fadeIn('slow').appendTo( this );
+				$('<h3>').attr({ rel: id(key) })
+                    .append( $('<img>').attr({ src: 'http://www.gravatar.com/avatar/' + $.md5(key)+'.jpg?size=255'}) )
+                    .append( $('<small>').text(key) )
+                    .hide().fadeIn('slow').appendTo( this );
 				methods['resize'].apply( this );
 					
 				return this;
