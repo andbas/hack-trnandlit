@@ -3,7 +3,7 @@
 	$.fn.timeTrack = function( method ) {
 	
 		var id = function( str ) {
-			return str.replace(/[^a-zA-Z0-9]+/g, '_');
+			return str !== undefined ? str.replace(/[^a-zA-Z0-9]+/g, '_') : (new Date()).getTime();
 		};
 	
 		var methods = {
@@ -84,7 +84,7 @@
 		} 
 		
 		else {
-		  $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+		  $.error( 'Method ' +  method + ' does not exist on jQuery.timeTrack' );
 		}    
 	};
 	
