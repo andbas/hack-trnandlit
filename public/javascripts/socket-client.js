@@ -39,7 +39,7 @@
 
     socket.on('press',function(data){
         $('div#time-track').timeTrack('send', data.email );
-        // bitb.playSound(data.soundid);
+        bitb.playSound(data.soundid);
     });
 
     $('div#time-track').timeTrack();
@@ -77,8 +77,9 @@
       for (i = 0; i < bitb.channel_max; i++) {
         var channel = bitb.audiochannels[i];
         if (channel.finished < current_time) {
-          channel.finished = current_time + document.getElementById(soundId).duration * 1000;
-          channel.track.src = document.getElementById(soundId).src;
+          var element = window.document.getElementById('sound'+soundId);
+          channel.finished = current_time + element.duration * 1000;
+          channel.track.src = element.src;
           channel.track.load();
           channel.track.play();
           break;
