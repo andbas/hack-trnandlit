@@ -256,8 +256,9 @@ footer {
     height: 0.9em;
     width: 0.9em;
     top:0.05em;
-    background:black;
+    background: #2c2c2c url(/images/note_plain.png) center center no-repeat;
     border-radius:1em;
+    box-shadow:0 1px 3px rgba(255, 255, 255, 0.2);
 }
 
 #sounds {
