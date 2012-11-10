@@ -1,8 +1,14 @@
 doctype 5
 html(lang="en")
     head
-        title MySite #{title}
+        title #bitb
+        link(rel='stylesheet', href='/stylesheets/reset.css')        
         link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='icon', type='image/png', href='/images/favicon.png')
         script(src='/socket.io/socket.io.js')
 body
-    block mainContent  
+  div(id="body-wrapper")
+    div(id="main-content")
+      block mainContent
+    footer
+      p Created by amazing team during #epamhack
