@@ -11,7 +11,8 @@ var express = require('express')
   , path = require('path')
   , app = express()
   , server = require('http').createServer(app)
-  , io = require('socket.io').listen(server);
+  , io = require('socket.io').listen(server)
+  , users = {};
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -39,8 +40,20 @@ server.listen(app.get('port'), function(){
 });
 
 io.sockets.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
+
+  socket.on('login', function(data){
+    var email = data.email;
+    users[socket.id] = email;
+    socket.broadcast.emit('user connected', {"email":data.email,"socketId":socket.id});
+    socket.emit('users online', users);
+  });
+
+  socket.on('disconnect', function () {
+    delete users[socket.id];
+    socket.broadcast.emit('user disconnected', {"socketId":socket.id});
+  });
+
+  socket.on('press',function(data){
+    socket.broadcast.emit('press', {"pressed":data});
+  });
 });
