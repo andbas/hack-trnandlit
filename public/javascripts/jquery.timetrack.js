@@ -10,11 +10,11 @@
 			
 			init: function( options ){
 			
-				options = $.extend({ speed: 50 }, options);
+				options = $.extend({ speed: 10 }, options);
 
 				var area = $(this);
 				setInterval(function() { 
-					area.find('div').animate({ left: '-=5', width: '+=5' }, options.speed ) 
+					area.find('div').css({ left: '-=2', width: '+=2' } )
 				}, options.speed );
 					
 				return this;

@@ -1,7 +1,7 @@
 extends layout
 
 block mainContent        
-    input(type='hidden', name='userid', value=userid)
+    input#email(type='hidden', name='userid', value=userid)
     div(class="timelineBlock")
       h3 History
         div#time-track
@@ -24,7 +24,7 @@ block mainContent
 
     script(src='/javascripts/jquery.timetrack.js')
     script(src='/javascripts/jquery.md5.js')
-    script(src='/javascripts/socket-client.js')
+
     script
         $(document).ready(function() {
             $('div#time-track').timeTrack();
@@ -34,6 +34,4 @@ block mainContent
             });
         });
 
-      
-      
-             
+    script(src='/javascripts/socket-client.js')
