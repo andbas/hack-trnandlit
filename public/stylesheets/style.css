@@ -3,6 +3,10 @@ body {
 /*  background: #DCDCD9 url(../images/absurdidad.png) repeat;*/
   font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
   font-size: .8em
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;  
 }
 a {
   color: #5B5B5B
